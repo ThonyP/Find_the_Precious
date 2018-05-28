@@ -1,0 +1,33 @@
+@mixin cercle ($size, $color,$shadow) {
+    background : transparent;
+    border-radius : 50%;
+    height : $size;
+    width :$size;
+    border : 5px solid $color;
+    box-shadow: inset 2px 2px $shadow, 2px 2px $shadow;
+}
+
+.flex{
+    display: flex;
+    align-items : center;
+}
+
+.orange {
+@include cercle (40px, orangered, orange);
+}
+
+.yellow{
+@include cercle (160px, yellow, orange);
+}
+
+$size : 25px;
+$color : grey;
+$shadow : black;
+@for $i from 1 through 6 {
+$size : $size + 12px;
+    .chaine:nth-child(#{$i}) {
+    @include cercle($size,$color,$shadow);
+        margin:-10px;
+        display: inline-block;
+    }
+}
